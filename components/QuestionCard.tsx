@@ -49,18 +49,18 @@ export default function QuestionCard({
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <div>
-        <span className="inline-block rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200">
+        <span className="inline-block rounded-full bg-indigo-100 px-2 py-0.5 text-[10px] font-medium text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200">
           {question.topic}
         </span>
-        <h2 className="mt-3 text-lg font-semibold leading-snug text-zinc-900 dark:text-white sm:text-xl">
+        <h2 className="mt-2.5 text-sm font-semibold leading-snug text-zinc-900 dark:text-white sm:text-base">
           {question.prompt}
         </h2>
         {question.type === "multi-select" && (
-          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">Select all that apply</p>
+          <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-400">Select all that apply</p>
         )}
       </div>
 
-      <ul className="scrollbar-hidden mt-6 min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">
+      <ul className="scrollbar-hidden mt-4 min-h-0 flex-1 space-y-1.5 overflow-y-auto pr-1">
         {question.options.map((option) => {
           const active = isSelected(option, selected, question.type);
           return (
@@ -69,15 +69,15 @@ export default function QuestionCard({
                 type="button"
                 onClick={() => handleOptionClick(option)}
                 disabled={disabled}
-                className={`w-full rounded-lg border px-4 py-3 text-left text-sm transition-colors sm:text-base ${
+                className={`w-full rounded-lg border px-3.5 py-2 text-left text-xs transition-colors sm:text-sm ${
                   active
                     ? "border-indigo-500 bg-indigo-50 text-indigo-900 dark:border-indigo-400 dark:bg-indigo-500/15 dark:text-indigo-100"
                     : "border-zinc-200 bg-white text-zinc-800 hover:border-indigo-300 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-indigo-400/60 dark:hover:bg-white/10"
                 } ${disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"}`}
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-2.5">
                   <span
-                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded ${
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded ${
                       question.type === "multi-select" ? "rounded-sm" : "rounded-full"
                     } border-2 ${
                       active
@@ -87,7 +87,7 @@ export default function QuestionCard({
                   >
                     {active && (
                       <svg
-                        className="h-3 w-3 text-white"
+                        className="h-2.5 w-2.5 text-white"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

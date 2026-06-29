@@ -95,17 +95,17 @@ export default function AssessmentClient({
   if (!question) return null;
 
   return (
-    <div className="mx-auto flex h-full max-h-[calc(100dvh-2rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-6 shadow-xl shadow-black/5 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-black/30 sm:max-h-[calc(100dvh-4rem)] sm:p-8">
-      <header className="flex flex-col gap-4 border-b border-zinc-200 pb-6 dark:border-white/10 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mx-auto flex h-full max-h-[calc(100dvh-2rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-4 shadow-xl shadow-black/5 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-black/30 sm:max-h-[calc(100dvh-4rem)] sm:p-5">
+      <header className="flex flex-col gap-3 border-b border-zinc-200 pb-4 dark:border-white/10 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">Checkpoint</p>
-          <p className="text-xs text-zinc-400 dark:text-zinc-500">Overall time</p>
-          <p className="font-mono text-lg font-semibold tabular-nums text-zinc-900 dark:text-white">
+          <p className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Checkpoint</p>
+          <p className="text-[10px] text-zinc-400 dark:text-zinc-500">Overall time</p>
+          <p className="font-mono text-sm font-semibold tabular-nums text-zinc-900 dark:text-white sm:text-base">
             {formatElapsed(elapsedSeconds)}
           </p>
         </div>
         <div className="w-full sm:max-w-xs">
-          <p className="mb-1 text-xs text-zinc-400 dark:text-zinc-500">Question timer</p>
+          <p className="mb-1 text-[10px] text-zinc-400 dark:text-zinc-500">Question timer</p>
           <Timer
             key={question.id}
             questionKey={question.id}
@@ -115,11 +115,11 @@ export default function AssessmentClient({
         </div>
       </header>
 
-      <div className="min-h-0 flex flex-1 flex-col py-6">
-        <div className="space-y-8">
+      <div className="min-h-0 flex flex-1 flex-col py-4">
+        <div className="space-y-5">
           <ProgressBar current={currentIndex + 1} total={questions.length} />
         </div>
-        <div className="mt-8 min-h-0 flex flex-1 flex-col">
+        <div className="mt-5 min-h-0 flex flex-1 flex-col">
           <QuestionCard
             question={question}
             selected={selected}
@@ -129,12 +129,12 @@ export default function AssessmentClient({
         </div>
       </div>
 
-      <div className="flex justify-end border-t border-zinc-200 pt-6 dark:border-white/10">
+      <div className="flex justify-end border-t border-zinc-200 pt-4 dark:border-white/10">
         <button
           type="button"
           onClick={advance}
           disabled={isPending}
-          className="cursor-pointer rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-indigo-600/25 transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
+          className="cursor-pointer rounded-lg bg-indigo-600 px-4 py-1.5 text-xs font-medium text-white shadow-lg shadow-indigo-600/25 transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isPending ? "Saving…" : isLast ? "Submit" : "Next"}
         </button>
